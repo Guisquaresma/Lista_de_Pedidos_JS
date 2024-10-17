@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(../img/plano-de-fundo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 95vw;
+    overflow: hidden;
+}
+
+.menu-container {
+    position: fixed;
+    bottom: 15px;
+    width: 100%; 
+    height: 100vh;
+    color: #31221B;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #31221B;
+    padding: 1px;
+    text-align: center;
+    width: 60vw;
+    margin-bottom: 10px;
+}
+
+.menu .section {
+    margin-bottom: 20px;
+}
+
+.menu .section h2 {
+    background-color: #31221B;
+    color: #F3E0D1;
+    padding: 1px;
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
+    width: 60vw;
+}
+
+.menu .section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu .section ul li {
+    justify-content: space-between;
+    padding: 1px;
+    border-bottom: 1px solid #F3E0D1;
+    width: 50vw;
+    text-align: center;
+    margin-left: 5vw;
+}
+
+.menu .section ul li span {
+    font-size: 15px;
+}
