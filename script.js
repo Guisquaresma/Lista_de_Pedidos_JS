@@ -8,12 +8,12 @@ function adicionarPedido() {
     let precoProduto = 0;
     let produto = parseInt(prompt(
         "DIGITE O NÚMERO DO PRODUTO: \n \n" +
-        "1 - Bolo - $47,00\n" +
-        "2 - Brigadeiro - $2,50\n" +
-        "3 - Caseirinho - $28,00\n" +
-        "4 - Copo da Felicidade - $20,00\n" +
-        "5 - Cupcake - $8,50\n" +
-        "6 - Donuts - $7,50"
+        "1 - Bolo - R$47,00\n" +
+        "2 - Brigadeiro - R$2,50\n" +
+        "3 - Caseirinho - R$28,00\n" +
+        "4 - Copo da Felicidade - R$20,00\n" +
+        "5 - Cupcake - R$8,50\n" +
+        "6 - Donuts - R$7,50"
     ));
 
     switch(produto) {
@@ -152,7 +152,7 @@ function adicionarPedido() {
     };
     
     listaDePedidos.push(pedido);
-    alert(`Pedido de ${produtoEscolhido} de ${saborEscolhido} adicionado com sucesso! Total: $${total.toFixed(2)}`);
+    alert(`Pedido de ${produtoEscolhido} de ${saborEscolhido} adicionado com sucesso! Total: R$${total.toFixed(2)}`);
 
     let finalizar = prompt("Deseja finalizar o pedido? (Sim/Não)").toLowerCase();
     if (finalizar === 'sim') {
@@ -168,10 +168,10 @@ function listarPedidos() {
     } else {
         let totalGeral = 0;
         listaDePedidos.forEach((pedido) => {
-            console.log(`ID: ${pedido.id} \n Cliente: ${pedido.nomeCliente} \n Produto: ${pedido.produto} \n Quantidade: ${pedido.quantidade} \n Total: $${pedido.total.toFixed(2)}`);
+            console.log(`ID: ${pedido.id} \n Cliente: ${pedido.nomeCliente} \n Produto: ${pedido.produto} \n Quantidade: ${pedido.quantidade} \n Total: R$${pedido.total.toFixed(2)}`);
             totalGeral += pedido.total;
         });
-        console.log(`Total Geral: $${totalGeral.toFixed(2)}`);
+        console.log(`Total Geral: R$${totalGeral.toFixed(2)}`);
     }
 }
 
