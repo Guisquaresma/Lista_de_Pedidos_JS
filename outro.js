@@ -1,74 +1,86 @@
-// let listaDePedidos = [];
+let listaDePedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+let id = listaDePedidos.length > 0 ? listaDePedidos[listaDePedidos.length - 1].id + 1 : 1; // Continuar a sequência de IDs
 
-// // const pedido = {
-// //     id: id,
-// //     nomeCliente: nomeCliente,
-// //     produto: produto,
-// //     quantidade: quantidade
-// // };
+function adicionarPedido() {
+    let nomeCliente = prompt("Digite seu nome completo:");
 
-// function adicionarPedido() {
-//     let nomeCliente = prompt("Digite seu nome completo:");
-//     // let produto = parseInt(prompt("DIGITE O NÚMERO DO PRODUTO: \n \n 1 - Bolo\n 2 - Brigadeiro\n 3 - Caseirinho\n 4 - Copo da Felicidade\n 5 - Cupcake\n 6 - Donuts"));
-//     // switch(produto) {
-//     //     case 1: 
-//     //     produto.push(pedido)
-
-//     //     case 2:
-//     //         produto.push(pedido)
-
-//     //     case 3:
-//     //         produto.push(pedido)
-
-//     //     case 4: 
-//     //         produto.push(pedido)
+    // Escolha do produto
+    let produtoEscolhido;
+    let produto = parseInt(prompt(
+        "DIGITE O NÚMERO DO PRODUTO: \n \n" +
+        "1 - Bolo\n" +
+        "2 - Brigadeiro\n" +
+        "3 - Caseirinho\n" +
+        "4 - Copo da Felicidade\n" +
+        "5 - Cupcake\n" +
+        "6 - Donuts"
+    ));
     
-//     //     case 5:
-//     //         produto.push(pedido)
+    // Definindo o nome do produto com base na escolha do número
+    switch(produto) {
+        case 1: 
+            produtoEscolhido = "Bolo";
+            break;
+        case 2:
+            produtoEscolhido = "Brigadeiro";
+            break;
+        case 3:
+            produtoEscolhido = "Caseirinho";
+            break;
+        case 4: 
+            produtoEscolhido = "Copo da Felicidade";
+            break;
+        case 5:
+            produtoEscolhido = "Cupcake";
+            break;
+        case 6:
+            produtoEscolhido = "Donuts";
+            break;
+        default:
+            alert("Produto inválido.");
+            return;
+    }
+
+    // Definir quantidade
+    let quantidade = parseInt(prompt("Digite a quantidade:"));
+
+    // Criar o pedido e adicionar à lista
+    const pedido = {
+        id: id++, // Incrementa o ID automaticamente
+        nomeCliente: nomeCliente,
+        produto: produtoEscolhido,
+        quantidade: quantidade
+    };
     
-//     //     case 6:
-//     //         produto.push(pedido)
-//     // }
+    listaDePedidos.push(pedido);
+    localStorage.setItem('pedidos', JSON.stringify(listaDePedidos)); // Salva os pedidos no LocalStorage
 
-//     let quantidade = parseInt(prompt("Digite a quantidade:"));
-// }
+    alert(`Pedido de ${produtoEscolhido} adicionado com sucesso!`);
 
-// function listarPedidos() {
-//     if (listaDePedidos.length === 0) {
-//         console.log("Nenhum pedido na lista.");
-//     } else {
-//         listaDePedidos.forEach((pedido) => {
-//             console.log(`ID: ${pedido.id} | Cliente: ${pedido.nomeCliente} | Produto: ${pedido.produto} | Quantidade: ${pedido.quantidade}`);
-//         });
-//     }
-// }
+    // Perguntar se deseja finalizar
+    let finalizar = prompt("Deseja finalizar o pedido? (Sim/Não)").toLowerCase();
+    if (finalizar === 'sim') {
+        listarPedidos();
+    } else {
+        adicionarPedido();
+    }
+}
 
-// function removerPedido(id) {
-//     listaDePedidos = listaDePedidos.filter(pedido => pedido.id !== id);
-//     console.log(`Pedido ${id} removido.`);
-// }
+function listarPedidos() {
+    if (listaDePedidos.length === 0) {
+        console.log("Nenhum pedido na lista.");
+    } else {
+        listaDePedidos.forEach((pedido) => {
+            console.log(`ID: ${pedido.id} | Cliente: ${pedido.nomeCliente} | Produto: ${pedido.produto} | Quantidade: ${pedido.quantidade}`);
+        });
+    }
+}
 
-// adicionarPedido(1, "Esmael Abreu", "Bolo de Chocolate", 2);
+function removerPedido(id) {
+    listaDePedidos = listaDePedidos.filter(pedido => pedido.id !== id);
+    localStorage.setItem('pedidos', JSON.stringify(listaDePedidos)); // Atualiza o LocalStorage após remover
+    console.log(`Pedido ${id} removido.`);
+}
 
-
-// listarPedidos();
-
-// removerPedido(2);
-
-// listarPedidos();
-
-// Supondo que você tenha um método para gerar um ID (pode ser um número aleatório ou uma contagem)
-let id = id; // Exemplo de ID aleatório
-let nomeCliente = prompt("Digite o nome do cliente:");
-let produto = parseInt(prompt("DIGITE O NÚMERO DO PRODUTO: \n \n 1 - Bolo\n 2 - Brigadeiro\n 3 - Caseirinho\n 4 - Copo da Felicidade\n 5 - Cupcake\n 6 - Donuts"));
-let quantidade = parseInt(prompt("Quantos itens você deseja?"));
-
-const pedido = {
-    id: id,
-    nomeCliente: nomeCliente,
-    produto: produto,
-    quantidade: quantidade
-};
-
-// Exibe o pedido no console
-console.log(pedido);
+// Recuperar e listar pedidos já salvos ao carregar a página
+listarPedidos();
