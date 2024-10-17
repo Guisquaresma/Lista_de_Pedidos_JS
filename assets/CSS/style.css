@@ -1,11 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url(../img/plano-de-fundo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 95vw;
-    overflow: hidden;
+    background-color: #F3E0D1;
 }
 
 .menu-container {
@@ -21,13 +16,10 @@ body {
 h1 {
     color: #31221B;
     padding: 1px;
-    text-align: center;
-    width: 60vw;
-    margin-bottom: 10px;
 }
 
 .menu .section {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .menu .section h2 {
@@ -36,8 +28,7 @@ h1 {
     padding: 1px;
     margin: 0;
     font-size: 18px;
-    text-align: center;
-    width: 60vw;
+    width: 50vw;
 }
 
 .menu .section ul {
@@ -49,10 +40,8 @@ h1 {
 .menu .section ul li {
     justify-content: space-between;
     padding: 1px;
-    border-bottom: 1px solid #F3E0D1;
-    width: 50vw;
-    text-align: center;
-    margin-left: 5vw;
+    border-bottom: 1px solid #31221B;
+    width: 40vw;
 }
 
 .menu .section ul li span {
