@@ -27,7 +27,7 @@ function removerPedido(id) {
 }
 
 adicionarPedido(1, "Esmael Abreu", "Bolo de Chocolate", 2);
-adicionarPedido(2, "Marina Almeida", "Torta de Limão", 1);
+adicionarPedido(2, "Marina Almeida", "Bolo temático da Barbie", 1);
 adicionarPedido(3, "Cleissiane Fonseca", "Cupcake", 4);
 adicionarPedido(4, "Yuri Matheus", "Copo da Felicidade", 1);
 
