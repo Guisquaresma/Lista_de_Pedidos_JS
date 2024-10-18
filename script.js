@@ -167,7 +167,7 @@ function adicionarPedido() {
     
     listaDePedidos.push(pedido);
 
-    let mensagemPedidos = "Pedidos anteriores:\n";
+    let mensagemPedidos = "Pedidos até o momento:\n";
     listaDePedidos.forEach((pedido, index) => {
         mensagemPedidos += `${index + 1}. ${pedido.produto} (Quantidade: ${pedido.quantidade}) - Total: R$${pedido.total.toFixed(2)}\n`;
     });
